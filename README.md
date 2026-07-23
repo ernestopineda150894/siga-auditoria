@@ -1,24 +1,17 @@
-# SIGA — Prototipo de Login v0.1
+# SIGA v0.2
+Sistema Integral de Gestión de Auditorías.
 
-## Cómo probarlo
+Interfaz de acceso actualizada para Audit & Tax Services, S.A. de C.V., A member of Auditaxes International LLP.
 
-1. Extrae la carpeta `SIGA_Prototipo_Login_v0_1`.
-2. Abre `index.html` con Chrome o Edge.
-3. Usa:
-   - Usuario: `admin`
-   - Contraseña: `Admin@2026Test`
-4. El prototipo te llevará al cambio obligatorio de contraseña y luego al Dashboard.
+## Identidad
+- Firma principal: Audit & Tax Services, S.A. de C.V.
+- Afiliación: A member of Auditaxes International LLP
+- Derechos: © 2026 Audit & Tax Services, S.A. de C.V. Todos los derechos reservados.
+- Derechos de autor: Gabriel Ernesto Barrera Pineda.
+- Versión: 0.2
 
-## Nota
-Esta es una demostración frontend. Las credenciales están simuladas en `app.js`.
-No debe utilizarse como sistema de producción.
+## Nota sobre logos
+Esta entrega mantiene la composición visual y los textos de identidad. Los bloques de logo son placeholders editables para evitar alterar los archivos originales. Para producción, sustituirlos por los archivos originales de los logos proporcionados.
 
-## Siguiente fase
-- Backend FastAPI
-- PostgreSQL
-- Hash de contraseñas con Argon2id
-- Gestión real de sesiones
-- Recuperación por correo
-- Roles y permisos
-- Multi-firma
-- Auditoría de acciones
+## Despliegue
+Reemplazar los archivos del repositorio conectado a Vercel y realizar un commit. Vercel deberá generar el nuevo deployment automáticamente.
