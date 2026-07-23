@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIGA — Sistema Integral de Gestión de Auditorías</title>
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,21 +19,63 @@
 </div>
 </div>
 </section>
+
 <section class="login-panel">
 <div class="card">
 <div class="mobile-logo"><div class="logo primary"><span>Audit &amp; Tax Services</span><small>EL SALVADOR</small></div></div>
-<div class="heading"><small>ACCESO SEGURO</small><h2>Iniciar sesión</h2><p>Ingrese sus credenciales para acceder a SIGA.</p></div>
-<form id="loginForm">
-<label>Usuario</label><input id="username" type="text" autocomplete="username" placeholder="Ej. gbarrera" required>
-<label>Contraseña</label><div class="password"><input id="password" type="password" autocomplete="current-password" placeholder="Ingrese su contraseña" required><button type="button" id="toggle">Mostrar</button></div>
-<div class="options"><label class="remember"><input type="checkbox" id="remember"> Recordar usuario</label><a href="#" id="forgot">¿Olvidó su contraseña?</a></div>
-<button class="primary-btn" type="submit">INGRESAR</button><div id="loginMsg" class="msg"></div>
+
+<div class="heading">
+<small>ACCESO SEGURO</small>
+<h2>Iniciar sesión</h2>
+<p>Ingrese sus credenciales para acceder a SIGA.</p>
+</div>
+
+<form id="loginForm" autocomplete="off">
+<label for="username">Usuario</label>
+<input id="username" type="text" autocomplete="username" placeholder="Ej. admin" required>
+
+<label for="password">Contraseña</label>
+<div class="password">
+<input id="password" type="password" autocomplete="current-password" placeholder="Ingrese su contraseña" required>
+<button type="button" id="toggle">Mostrar</button>
+</div>
+
+<div class="options">
+<label class="remember"><input type="checkbox" id="remember"> Recordar usuario</label>
+<a href="#" id="forgot">¿Olvidó su contraseña?</a>
+</div>
+
+<button class="primary-btn" type="submit">INGRESAR AL SISTEMA</button>
+<div id="loginMsg" class="msg"></div>
 </form>
+
 <div class="security">🔒 Acceso protegido. La contraseña es personal e intransferible.</div>
-<footer><strong>SIGA</strong> — Sistema Integral de Gestión de Auditorías<br>© 2026 Audit &amp; Tax Services, S.A. de C.V. Todos los derechos reservados.<br>Derechos de autor: <strong>Gabriel Ernesto Barrera Pineda</strong><br><b>Versión 0.2</b></footer>
+
+<footer>
+<strong>SIGA</strong> — Sistema Integral de Gestión de Auditorías<br>
+© 2026 Audit &amp; Tax Services, S.A. de C.V. Todos los derechos reservados.<br>
+Derechos de autor: <strong>Gabriel Ernesto Barrera Pineda</strong><br>
+<b>Versión 0.2</b>
+</footer>
 </div>
 </section>
 </main>
-<div id="modal" class="modal hidden"><div class="modal-card"><button id="close">×</button><small>RECUPERACIÓN DE ACCESO</small><h2>Recuperar contraseña</h2><p>Ingrese el correo electrónico asociado a su cuenta.</p><form id="recovery"><label>Correo electrónico</label><input id="email" type="email" placeholder="usuario@dominio.com" required><button class="primary-btn">ENVIAR INSTRUCCIONES</button><div id="recoveryMsg" class="msg"></div></form></div></div>
+
+<div id="modal" class="modal hidden">
+<div class="modal-card">
+<button id="close">×</button>
+<small>RECUPERACIÓN DE ACCESO</small>
+<h2>Recuperar contraseña</h2>
+<p>Ingrese el correo electrónico asociado a su cuenta.</p>
+<form id="recovery">
+<label for="email">Correo electrónico</label>
+<input id="email" type="email" placeholder="usuario@dominio.com" required>
+<button class="primary-btn" type="submit">ENVIAR INSTRUCCIONES</button>
+<div id="recoveryMsg" class="msg"></div>
+</form>
+</div>
+</div>
+
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>
