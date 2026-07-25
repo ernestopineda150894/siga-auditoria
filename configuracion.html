@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SIGA — Configuración Global</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial;background:#f4f7fa;color:#17324d}
+header{height:64px;background:#fff;border-bottom:1px solid #dfe7ed;display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+.brand{font-weight:800;letter-spacing:4px;color:#075878}main{max-width:1050px;margin:28px auto;padding:0 20px}
+.card{background:#fff;border:1px solid #e0e8ee;border-radius:12px;padding:25px;margin-bottom:20px;box-shadow:0 5px 18px #183c5512}
+h1{margin-top:0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+label{font-size:12px;font-weight:700;display:block;margin:12px 0 6px}input{width:100%;height:40px;border:1px solid #d2dfe7;border-radius:6px;padding:0 10px}
+.feature{display:grid;grid-template-columns:70px 1fr 100px;gap:10px;align-items:center;margin:10px 0}.feature input{height:36px}
+button{border:0;border-radius:6px;padding:11px 18px;background:#075bd2;color:#fff;font-weight:700;cursor:pointer}
+.secondary{background:#edf3f7;color:#29485f}.actions{display:flex;gap:10px;margin-top:20px}
+small{color:#71818d}@media(max-width:700px){.grid{grid-template-columns:1fr}.feature{grid-template-columns:55px 1fr 80px}}
+</style>
+</head>
+<body>
+<header><div class="brand">SIGA</div><div>Configuración Global</div></header>
+<main>
+<h1>Personalización de la pantalla de acceso</h1>
+<p>Esta versión incorpora los cuatro elementos marcados en la pantalla de acceso como parámetros editables.</p>
+<div class="card">
+<h2>Características de acceso</h2>
+<small>Puede cambiar el icono, nombre, orden y estado. Los cambios se guardan localmente en esta versión de prototipo.</small>
+<div id="featureEditor"></div>
+<div class="actions"><button id="save">Guardar configuración</button><button class="secondary" id="reset">Restaurar valores predeterminados</button></div>
+<div id="msg"></div>
+</div>
+<div class="card">
+<h2>Logos de la firma</h2>
+<p><small>En la arquitectura definitiva, estos archivos serán gestionados desde la configuración de Firma / País. En este prototipo se pueden seleccionar archivos locales para visualizar la personalización.</small></p>
+<div class="grid">
+<div><label>Logo de firma local</label><input type="file" id="local" accept="image/*"></div>
+<div><label>Logo de firma internacional</label><input type="file" id="international" accept="image/*"></div>
+</div>
+<div class="actions"><button id="saveLogos">Guardar logos</button><a href="index.html"><button class="secondary">Ver pantalla de acceso</button></a></div>
+</div>
+</main>
+<script>
+const key='siga_access_config_v022';
+const defaults={features:[{icon:'♢',name:'Seguro',active:true},{icon:'▥',name:'Eficiente',active:true},{icon:'♧',name:'Colaborativo',active:true},{icon:'▤',name:'Confiable',active:true}],logos:{local:'assets/logo_local.png',international:'assets/logo_international.png'}};
+function cfg(){try{return {...defaults,...JSON.parse(localStorage.getItem(key)||'{}')}}catch(e){return defaults}}
+function render(){let c=cfg();document.getElementById('featureEditor').innerHTML=(c.features||[]).map((f,i)=>`<div class="feature"><input data-i="${i}" data-k="icon" value="${f.icon||''}" maxlength="4"><input data-i="${i}" data-k="name" value="${f.name||''}" maxlength="40"><label><input type="checkbox" data-i="${i}" data-k="active" ${f.active!==false?'checked':''}> Activo</label></div>`).join('')}
+render();
+document.getElementById('save').onclick=()=>{let c=cfg();document.querySelectorAll('[data-i]').forEach(x=>{let i=+x.dataset.i,k=x.dataset.k;c.features[i][k]=k==='active'?x.checked:x.value});localStorage.setItem(key,JSON.stringify(c));document.getElementById('msg').textContent='Configuración guardada.'};
+document.getElementById('reset').onclick=()=>{localStorage.removeItem(key);render()};
+function saveFile(id,keyname){let f=document.getElementById(id).files[0];if(!f)return;let r=new FileReader();r.onload=()=>{let c=cfg();c.logos[keyname]=r.result;localStorage.setItem(key,JSON.stringify(c))};r.readAsDataURL(f)}
+document.getElementById('saveLogos').onclick=()=>{saveFile('local','local');saveFile('international','international');document.getElementById('msg').textContent='Logos guardados. Abra la pantalla de acceso para visualizar los cambios.'};
+</script>
+</body></html>

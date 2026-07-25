@@ -3,86 +3,90 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SIGA v0.2.1 — Acceso</title>
+<title>SIGA — Sistema Integral de Gestión de Auditorías</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="page">
-  <section class="left">
-    <div class="left-inner">
-      <img id="mainLogo" class="main-logo" alt="Auditaxes El Salvador">
-      <div id="mainFallback" class="fallback-main">Auditaxes <span>EL SALVADOR</span><small>Audit · Tax · Consulting · Outsourcing</small></div>
+  <section class="brand-panel">
+    <div class="brand-content">
+      <div class="brand-logo-wrap">
+        <div class="logo-placeholder" id="localLogoPlaceholder">AUDITAXES<br><small>EL SALVADOR</small></div>
+        <img id="localLogo" class="brand-logo" alt="Auditaxes El Salvador">
+      </div>
       <div class="siga">SIGA</div>
       <h1>Sistema Integral de<br>Gestión de Auditorías</h1>
-      <div class="line"></div>
-      <div class="features">
-        <div><b>♢</b><span>Seguro</span></div>
-        <div><b>▥</b><span>Eficiente</span></div>
-        <div><b>♧</b><span>Colaborativo</span></div>
-        <div><b>▤</b><span>Confiable</span></div>
-      </div>
+      <div class="green-line"></div>
+      <div class="features" id="features"></div>
     </div>
   </section>
 
-  <section class="right">
-    <div class="card">
+  <section class="login-panel">
+    <div class="login-card">
       <div class="avatar">●</div>
       <h2>Iniciar sesión</h2>
-      <p class="sub">Ingrese sus credenciales para continuar.</p>
+      <p class="subtitle">Ingrese sus credenciales para continuar.</p>
 
       <form id="loginForm">
         <label>Correo electrónico (usuario)</label>
-        <div class="field email"><span>✉</span><input id="user" placeholder="usuario@dominio.com" autocomplete="username"></div>
+        <div class="input-wrap">
+          <span>✉</span><input id="username" autocomplete="username" placeholder="usuario@dominio.com" required>
+        </div>
 
         <label>Contraseña</label>
-        <div class="field"><span>♙</span><input id="pass" type="password" placeholder="Ingrese su contraseña" autocomplete="current-password"><button type="button" id="show">◉</button></div>
+        <div class="input-wrap">
+          <span>♙</span><input id="password" type="password" autocomplete="current-password" placeholder="Ingrese su contraseña" required>
+          <button type="button" id="togglePassword">◉</button>
+        </div>
 
-        <div class="options">
-          <label class="check"><input type="checkbox" id="remember"> Recordar sesión</label>
+        <div class="login-options">
+          <label><input type="checkbox" id="remember"> Recordar sesión</label>
           <a href="#" id="forgot">¿Olvidó su contraseña?</a>
         </div>
 
-        <button class="login" type="submit">↪ &nbsp; Ingresar al sistema</button>
-        <div id="msg"></div>
+        <button class="primary-btn" type="submit">↪ &nbsp; Ingresar al sistema</button>
+        <div id="loginMessage" class="message"></div>
       </form>
 
       <div class="or"><span>o continúe con</span></div>
-      <button class="microsoft" id="ms"><b>▦ &nbsp; Continuar con Microsoft</b><small>Outlook / Microsoft 365</small></button>
+      <button class="microsoft-btn" id="microsoftBtn">▦ &nbsp; Continuar con Microsoft
+        <small>Outlook / Microsoft 365</small>
+      </button>
 
-      <div class="logos">
-        <div class="logo-box">
-          <img id="localLogo" alt="Auditaxes El Salvador">
-          <div id="localFallback" class="fallback-logo">Auditaxes<small>EL SALVADOR</small></div>
+      <div class="member-logos">
+        <div class="member-logo">
+          <div class="logo-placeholder small">AUDITAXES<br><small>EL SALVADOR</small></div>
+          <img id="localLogoBottom" alt="Auditaxes El Salvador">
           <span>Audit · Tax · Consulting · Outsourcing</span>
         </div>
-        <div class="divider"></div>
-        <div class="logo-box">
-          <img id="intlLogo" alt="Auditaxes Internacional">
-          <div id="intlFallback" class="fallback-logo">Auditaxes<small>INTERNACIONAL</small></div>
+        <div class="logo-divider"></div>
+        <div class="member-logo">
+          <div class="logo-placeholder small">AUDITAXES<br><small>INTERNACIONAL</small></div>
+          <img id="internationalLogo" alt="Auditaxes Internacional">
           <span>Audit · Tax · Consulting · Outsourcing</span>
         </div>
       </div>
-      <div class="member">A member of <b>Auditaxes International LLP</b></div>
+      <div class="member-text">A member of <strong>Auditaxes International LLP</strong></div>
 
       <footer>
         SIGA — Sistema Integral de Gestión de Auditorías<br>
         © 2026 Audit &amp; Tax Services, S.A. de C.V. Todos los derechos reservados.<br>
         Derechos de autor: Gabriel Ernesto Barrera Pineda<br>
         Desarrollado con el apoyo de herramientas de inteligencia artificial<br>
-        <strong>Versión 0.2.1</strong>
+        <strong>Versión 0.2.2</strong>
       </footer>
     </div>
   </section>
 </div>
 
-<div id="modal" class="modal hidden">
+<div class="modal hidden" id="recoveryModal">
   <div class="modal-card">
-    <button id="close">×</button>
+    <button class="close" id="closeModal">×</button>
     <h2>Recuperar contraseña</h2>
-    <p>Ingrese el correo electrónico asociado a su cuenta.</p>
-    <input id="email" type="email" placeholder="usuario@outlook.com">
-    <button id="send" class="login">Enviar instrucciones</button>
-    <div id="recoverMsg"></div>
+    <p>La recuperación se asociará al correo electrónico registrado del usuario.</p>
+    <input type="email" id="recoveryEmail" placeholder="usuario@outlook.com">
+    <button class="primary-btn" id="sendRecovery">Enviar instrucciones</button>
+    <div id="recoveryMessage" class="message"></div>
   </div>
 </div>
 <script src="app.js"></script>
