@@ -1,17 +1,20 @@
-# SIGA v0.2
-Sistema Integral de Gestión de Auditorías.
+# SIGA v0.2.1
+Versión de prueba de la ventana de acceso y dashboard.
 
-Interfaz de acceso actualizada para Audit & Tax Services, S.A. de C.V., A member of Auditaxes International LLP.
+## Acceso de prueba
+Usuario: admin
+Contraseña: Admin@2026Test
 
-## Identidad
-- Firma principal: Audit & Tax Services, S.A. de C.V.
-- Afiliación: A member of Auditaxes International LLP
-- Derechos: © 2026 Audit & Tax Services, S.A. de C.V. Todos los derechos reservados.
-- Derechos de autor: Gabriel Ernesto Barrera Pineda.
-- Versión: 0.2
+## Estructura
+- index.html: ventana de acceso aprobada como referencia visual.
+- dashboard.html: interfaz de sistema de prueba.
+- styles.css: estilos.
+- app.js: autenticación de prototipo.
+- assets/: logos.
+- README.md: instrucciones.
 
-## Nota sobre logos
-Esta entrega mantiene la composición visual y los textos de identidad. Los bloques de logo son placeholders editables para evitar alterar los archivos originales. Para producción, sustituirlos por los archivos originales de los logos proporcionados.
+## Publicar en Vercel
+Subir el contenido de esta carpeta al repositorio de GitHub conectado a Vercel y hacer commit/push. Vercel realizará el deployment.
 
-## Despliegue
-Reemplazar los archivos del repositorio conectado a Vercel y realizar un commit. Vercel deberá generar el nuevo deployment automáticamente.
+## Nota
+La autenticación actual es de prototipo. La siguiente fase debe conectar el login a la base de datos, usuarios, roles, recuperación real por Outlook/Microsoft 365, sesiones seguras y permisos.

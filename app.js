@@ -1,9 +1,12 @@
 const $=id=>document.getElementById(id);
-const saved=localStorage.getItem('siga_username');
-if(saved){$('username').value=saved;$('remember').checked=true}
-$('toggle').onclick=()=>{const p=$('password');p.type=p.type==='password'?'text':'password';$('toggle').textContent=p.type==='password'?'Mostrar':'Ocultar'};
-$('loginForm').onsubmit=e=>{e.preventDefault();const m=$('loginMsg');m.className='msg';if(!$('username').value.trim()||!$('password').value){m.textContent='Ingrese su usuario y contraseña.';m.classList.add('error');return}if($('remember').checked)localStorage.setItem('siga_username',$('username').value.trim());else localStorage.removeItem('siga_username');m.textContent='Validación de acceso preparada para la conexión con el sistema.';m.classList.add('success')};
-$('forgot').onclick=e=>{e.preventDefault();$('modal').classList.remove('hidden');$('email').focus()};
-$('close').onclick=()=> $('modal').classList.add('hidden');
-$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.add('hidden')};
-$('recovery').onsubmit=e=>{e.preventDefault();const m=$('recoveryMsg');m.className='msg';if(!$('email').value.includes('@')){m.textContent='Ingrese un correo electrónico válido.';m.classList.add('error');return}m.textContent='Solicitud registrada. El flujo real de recuperación se conectará posteriormente al correo del usuario.';m.classList.add('success')};
+const USER='admin', PASS='Admin@2026Test';
+const files=['assets/logo_1.png','assets/logo_1.jpg','assets/logo_1.jpeg','assets/logo_1.webp'];
+const files2=['assets/logo_2.png','assets/logo_2.jpg','assets/logo_2.jpeg','assets/logo_2.webp'];
+function logo(id,fb,list,i=0){if(i>=list.length){$(id).style.display='none';$(fb).style.display='block';return}$(id).onerror=()=>logo(id,fb,list,i+1);$(id).onload=()=>{$(id).style.display='block';$(fb).style.display='none'};$(id).src=list[i]}
+logo('mainLogo','mainFallback',files);logo('localLogo','localFallback',files);logo('intlLogo','intlFallback',files2);
+$('show').onclick=()=>{$('pass').type=$('pass').type==='password'?'text':'password'};
+$('loginForm').onsubmit=e=>{e.preventDefault();let m=$('msg');if($('user').value.trim()===USER&&$('pass').value===PASS){m.textContent='Acceso correcto. Ingresando al sistema...';m.style.cssText='color:#28744f;font-size:10px;text-align:center;margin-top:7px';setTimeout(()=>location.href='dashboard.html',500)}else{m.textContent='Usuario o contraseña incorrectos.';m.style.cssText='color:#b33a3a;font-size:10px;text-align:center;margin-top:7px'}};
+$('forgot').onclick=e=>{e.preventDefault();$('modal').classList.remove('hidden')};
+$('close').onclick=()=>$('modal').classList.add('hidden');
+$('send').onclick=()=>{$('recoverMsg').textContent='Solicitud registrada. La recuperación real se conectará al correo del usuario en el módulo de autenticación.';$('recoverMsg').style.cssText='color:#28744f;font-size:10px;margin-top:8px'};
+$('ms').onclick=()=>alert('Integración Microsoft 365 preparada para una fase posterior.');

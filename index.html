@@ -1,38 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIGA — Sistema Integral de Gestión de Auditorías</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SIGA v0.2.1 — Acceso</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<main class="login-page">
-<section class="brand-panel">
-<div class="brand-content">
-<div class="logo primary"><span>Audit &amp; Tax Services</span><small>EL SALVADOR</small></div>
-<div class="siga"><b>SIGA</b><h1>Sistema Integral de<br>Gestión de Auditorías</h1></div>
-<p>Plataforma integral para la gestión, planificación, ejecución, supervisión y documentación de auditorías financieras y fiscales.</p>
-<div class="international">
-<div class="logo"><span>Auditaxes</span><small>INTERNACIONAL</small></div>
-<div>A member of <strong>Auditaxes International LLP</strong></div>
+<div class="page">
+  <section class="left">
+    <div class="left-inner">
+      <img id="mainLogo" class="main-logo" alt="Auditaxes El Salvador">
+      <div id="mainFallback" class="fallback-main">Auditaxes <span>EL SALVADOR</span><small>Audit · Tax · Consulting · Outsourcing</small></div>
+      <div class="siga">SIGA</div>
+      <h1>Sistema Integral de<br>Gestión de Auditorías</h1>
+      <div class="line"></div>
+      <div class="features">
+        <div><b>♢</b><span>Seguro</span></div>
+        <div><b>▥</b><span>Eficiente</span></div>
+        <div><b>♧</b><span>Colaborativo</span></div>
+        <div><b>▤</b><span>Confiable</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="right">
+    <div class="card">
+      <div class="avatar">●</div>
+      <h2>Iniciar sesión</h2>
+      <p class="sub">Ingrese sus credenciales para continuar.</p>
+
+      <form id="loginForm">
+        <label>Correo electrónico (usuario)</label>
+        <div class="field email"><span>✉</span><input id="user" placeholder="usuario@dominio.com" autocomplete="username"></div>
+
+        <label>Contraseña</label>
+        <div class="field"><span>♙</span><input id="pass" type="password" placeholder="Ingrese su contraseña" autocomplete="current-password"><button type="button" id="show">◉</button></div>
+
+        <div class="options">
+          <label class="check"><input type="checkbox" id="remember"> Recordar sesión</label>
+          <a href="#" id="forgot">¿Olvidó su contraseña?</a>
+        </div>
+
+        <button class="login" type="submit">↪ &nbsp; Ingresar al sistema</button>
+        <div id="msg"></div>
+      </form>
+
+      <div class="or"><span>o continúe con</span></div>
+      <button class="microsoft" id="ms"><b>▦ &nbsp; Continuar con Microsoft</b><small>Outlook / Microsoft 365</small></button>
+
+      <div class="logos">
+        <div class="logo-box">
+          <img id="localLogo" alt="Auditaxes El Salvador">
+          <div id="localFallback" class="fallback-logo">Auditaxes<small>EL SALVADOR</small></div>
+          <span>Audit · Tax · Consulting · Outsourcing</span>
+        </div>
+        <div class="divider"></div>
+        <div class="logo-box">
+          <img id="intlLogo" alt="Auditaxes Internacional">
+          <div id="intlFallback" class="fallback-logo">Auditaxes<small>INTERNACIONAL</small></div>
+          <span>Audit · Tax · Consulting · Outsourcing</span>
+        </div>
+      </div>
+      <div class="member">A member of <b>Auditaxes International LLP</b></div>
+
+      <footer>
+        SIGA — Sistema Integral de Gestión de Auditorías<br>
+        © 2026 Audit &amp; Tax Services, S.A. de C.V. Todos los derechos reservados.<br>
+        Derechos de autor: Gabriel Ernesto Barrera Pineda<br>
+        Desarrollado con el apoyo de herramientas de inteligencia artificial<br>
+        <strong>Versión 0.2.1</strong>
+      </footer>
+    </div>
+  </section>
 </div>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <button id="close">×</button>
+    <h2>Recuperar contraseña</h2>
+    <p>Ingrese el correo electrónico asociado a su cuenta.</p>
+    <input id="email" type="email" placeholder="usuario@outlook.com">
+    <button id="send" class="login">Enviar instrucciones</button>
+    <div id="recoverMsg"></div>
+  </div>
 </div>
-</section>
-<section class="login-panel">
-<div class="card">
-<div class="mobile-logo"><div class="logo primary"><span>Audit &amp; Tax Services</span><small>EL SALVADOR</small></div></div>
-<div class="heading"><small>ACCESO SEGURO</small><h2>Iniciar sesión</h2><p>Ingrese sus credenciales para acceder a SIGA.</p></div>
-<form id="loginForm">
-<label>Usuario</label><input id="username" type="text" autocomplete="username" placeholder="Ej. gbarrera" required>
-<label>Contraseña</label><div class="password"><input id="password" type="password" autocomplete="current-password" placeholder="Ingrese su contraseña" required><button type="button" id="toggle">Mostrar</button></div>
-<div class="options"><label class="remember"><input type="checkbox" id="remember"> Recordar usuario</label><a href="#" id="forgot">¿Olvidó su contraseña?</a></div>
-<button class="primary-btn" type="submit">INGRESAR</button><div id="loginMsg" class="msg"></div>
-</form>
-<div class="security">🔒 Acceso protegido. La contraseña es personal e intransferible.</div>
-<footer><strong>SIGA</strong> — Sistema Integral de Gestión de Auditorías<br>© 2026 Audit &amp; Tax Services, S.A. de C.V. Todos los derechos reservados.<br>Derechos de autor: <strong>Gabriel Ernesto Barrera Pineda</strong><br><b>Versión 0.2</b></footer>
-</div>
-</section>
-</main>
-<div id="modal" class="modal hidden"><div class="modal-card"><button id="close">×</button><small>RECUPERACIÓN DE ACCESO</small><h2>Recuperar contraseña</h2><p>Ingrese el correo electrónico asociado a su cuenta.</p><form id="recovery"><label>Correo electrónico</label><input id="email" type="email" placeholder="usuario@dominio.com" required><button class="primary-btn">ENVIAR INSTRUCCIONES</button><div id="recoveryMsg" class="msg"></div></form></div></div>
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>
