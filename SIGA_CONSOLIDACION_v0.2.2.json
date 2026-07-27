@@ -1,0 +1,24 @@
+{
+  "project": "SIGA — Sistema Integral de Gestión de Auditorías",
+  "version": "0.2.2",
+  "test_access": {
+    "username": "admin",
+    "password": "Admin@2026Test"
+  },
+  "baseline": "SIGA_v0.2.2_completa.zip",
+  "approved_ui_reference": "Última interfaz de acceso aprobada por el usuario",
+  "requirements_to_preserve": [
+    "Ventana de acceso aprobada",
+    "Fondo de acceso configurable desde Configuración/Assets",
+    "Logo local configurable por país/firma",
+    "Logo internacional completo configurable",
+    "Texto A member of antes del logo internacional",
+    "Usuarios y roles",
+    "Acceso de prueba funcional",
+    "Metodología de auditoría pasos 1 al 8",
+    "Paso 6 como punto de generación de áreas sugeridas",
+    "Áreas sustantivas organizables por visitas",
+    "Dashboard del Encargo y módulos operativos",
+    "Derechos de autor: Gabriel Ernesto Barrera Pineda"
+  ]
+}
